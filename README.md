@@ -1,4 +1,4 @@
-# Hate Speech Detection — Cross-Domain Analysis
+# Hate Speech Detection - Cross-Domain Analysis
 
 > **Content Warning**: This project analyses offensive language examples for research purposes.
 
@@ -25,7 +25,7 @@ CSV files are stored in [`data/`](data/).
 ## Requirements
 
 - Python 3.11+
-- [uv](https://docs.astral.sh/uv/) — `pip install uv` or follow the [uv install guide](https://docs.astral.sh/uv/getting-started/installation/)
+- [uv](https://docs.astral.sh/uv/) - `pip install uv` or follow the [uv install guide](https://docs.astral.sh/uv/getting-started/installation/)
 - A CUDA-capable GPU is strongly recommended for the transformer models (BERT, RoBERTa)
 
 ---
@@ -134,7 +134,7 @@ hate-speech-detection/
 
 ## Results Showcase
 
-### Model performance — in-domain vs cross-domain
+### Model performance - in-domain vs cross-domain
 
 ![Performance comparison across all metrics](docs/images/performance_comparison.png)
 
@@ -146,7 +146,7 @@ Transformers (BERT, RoBERTa) lead on macro F1 in both settings. Classical models
 
 The lexicon-enhanced and SVM models suffer the largest accuracy drops (~20–30 pp), confirming that surface-level features are highly domain-specific.
 
-### BERT confusion matrix — in-domain
+### BERT confusion matrix - in-domain
 
 ![BERT in-domain confusion matrix](docs/images/bert_confusion_matrix.png)
 
@@ -154,7 +154,7 @@ The lexicon-enhanced and SVM models suffer the largest accuracy drops (~20–30 
 
 ## Key Design Decisions
 
-- **Central config** — all paths and hyperparameters live in `src/hate_speech/config.py`. Change them once and the change propagates everywhere.
-- **`src/` layout** — prevents accidental import of the uninstalled package and follows modern Python packaging conventions.
-- **Automatic GPU/CPU fallback** — the transformer module detects CUDA availability and disables FP16 / multiprocessing when running on CPU.
-- **Modular experiments** — `experiments/in_domain.py` and `experiments/cross_domain.py` are fully self-contained; you can run either independently or both via `main.py`.
+- **Central config** - all paths and hyperparameters live in `src/hate_speech/config.py`. Change them once and the change propagates everywhere.
+- **`src/` layout** - prevents accidental import of the uninstalled package and follows modern Python packaging conventions.
+- **Automatic GPU/CPU fallback** - the transformer module detects CUDA availability and disables FP16 / multiprocessing when running on CPU.
+- **Modular experiments** - `experiments/in_domain.py` and `experiments/cross_domain.py` are fully self-contained; you can run either independently or both via `main.py`.
